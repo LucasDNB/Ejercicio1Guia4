@@ -1,0 +1,91 @@
+	public class Ejercicioo1{
+		
+	public static void main(String[] args) {
+		//Declaro las matrices A, B y C
+		float [][] matrizA = {{2.45f, 4.21f}, {3.76f, 7.12f}};
+
+		float [][] matrizB = {{7.25f, 3.11f}, {8.76f, 4.12f}};
+		
+		int [][] matrizC = new int [matrizA.length] [matrizA[0].length]; 
+		//cargo la funcion
+		matrizC = procesamientoMatrices(matrizA, matrizB);
+		
+	}
+		
+		public static int[][] procesamientoMatrices(float [][] a, float [][] b) {
+			//Declaro las variables a utilizar
+			int iA=0, jA=0; //guarda la posicion del minimo A
+			int iB=0, jB=0; //guarda la posicion del maximo B
+		    int minimoA = (int)a[0][0]; //guarda el valor del minimo A
+		    int maximoB = (int)b[0][0]; //guarda el valor del maximo B
+		    int c [][] = new int [a.length][a[0].length]; 
+		    
+		    System.out.println("Matriz A: "); //a continuacion ciclo para mostrar la matriz A
+		    for (int i=0;i<a.length;i++) {
+		    	for (int j=0; j<a[i].length; j++) {
+		    		System.out.print("\t" +a[i][j]);
+		    	}
+		    	System.out.println();
+		    }
+		    System.out.println("Matriz B: "); //a continuacion ciclo para mostrar la matriz B
+		    
+		    for (int i=0;i<b.length;i++) {
+		    	for (int j=0; j<b[i].length; j++) {
+		    		System.out.print("\t" +b[i][j]);
+		    	}
+		    	System.out.println();
+		    }
+			System.out.println();	    
+			
+			for (int i=0; i<a.length; i++) { //ciclo para castear a enteros
+				for (int j=0; j<a[i].length; j++) {
+					    
+						a[i][j] = (int) a[i][j];
+						b[i][j] = (int) b[i][j];
+						c[i][j] = (int) (a[i][j] + b[i][j]);
+						
+						if (a[i][j]<minimoA) { //Condicional para guardar el minimo de A
+							minimoA = (int)a[i][j];
+							iA=i; jB=j;
+							}
+						if (b[i][j]>maximoB) { //Condicional para guardar el maximo de B
+							maximoB = (int)b[i][j];		
+							iB=i; jB=j;
+						}
+			}
+		}    
+			//Intercambio de minimo A por maximo B
+			a[iA][jA] = maximoB; 
+			b[iB][jB] = minimoA;
+			
+			System.out.println("Se intercambian A("+iA+", "+jA+") y B("+iB+", "+jB+")"); //muestro el intercambio
+			
+			System.out.println("\n Matriz A final"); //Muestro matriz A con enteros y valor solicitado cambiado
+		    for (int i=0;i<a.length;i++) {
+		    	for (int j=0; j<a[i].length; j++) {
+		    		System.out.print("\t" +a[i][j]);
+		    	}
+		    	System.out.println();
+		    }
+		    System.out.println("\n Matriz B final"); //Muestro matriz B con enteros y valor solicitado cambiado
+		    
+		    for (int i=0;i<b.length;i++) {
+		    	for (int j=0; j<b[i].length; j++) {
+		    		System.out.print("\t" +b[i][j]);
+		    	}
+		    	System.out.println();
+		    }
+			System.out.println("\n Matriz C:"); //Muestro 
+             for (int i=0;i<b.length;i++) {
+    	        for (int j=0; j<b[i].length; j++) {
+    		System.out.print("\t" +c[i][j]);
+    	}
+    	System.out.println("");
+    }
+    
+		
+		
+		return c;
+	}
+	}
+
