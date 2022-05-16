@@ -1,3 +1,9 @@
+	/*1. Dadas dos matrices A y B de dimensiones nxm y mxp respectivamente, con valores de 
+        tipo float con dos decimales significativos, desarrollar una función que los convierta a 
+        enteros e intercambie el valor mínimo de la matriz A con el valor máximo de la matriz B.
+        Considerar que ambas matrices pueden tener valores repetidos. La función debe 
+        retornar una tercera matriz C con el resultado de la suma de ambas matrices.*/	
+	
 	public class Ejercicioo1{
 		
 	public static void main(String[] args) {
